@@ -173,8 +173,8 @@ class User:
         return f"User {self._userId} logged in."
 
     def __str__(self):
-        return f"User Info:\nI
-        D: {self._userId}\n
+        return f"User Info:\n
+        ID: {self._userId}\n
         Name: {self._name}\n
         Email: {self._email}\n
         Nationality: {self._nationality}"
@@ -232,7 +232,10 @@ class Guest(User):
 
     def viewReservation(self):
         return f"You have {len(self._bookingsList)} reservations."
-
+    def __str__(self):
+        return f"Guest({self._name}\n
+        Loyalty: {self._loyaltyStatus}\n 
+        Bookings: {len(self._bookingsList)})"
 
 class Admin(User):
     """
@@ -256,6 +259,11 @@ class Admin(User):
     def manageRooms(self):
         return "Admin is managing rooms."
 
+    def __str__(self):
+        return f"Admin Info: {self._name}\n
+        Role: {self._role}\n
+        Permissions: {self._permissions}"
+        
 class Feedback:
     """Represents guest feedback on the stay."""
     def __init__(self, feedbackId, rating, comments, datetime):
@@ -287,6 +295,11 @@ class Feedback:
     def submitFeedBack(self):
         return "Feedback submitted successfully."
 
+def __str__(self):
+        return f"Feedback({self._feedbackId}\n 
+        Rating: {self._rating}\n
+        Date: {self._datetime})"
+
 
 class LoyaltyProgram:
     """Represents loyalty program membership for a guest."""
@@ -317,3 +330,8 @@ class LoyaltyProgram:
     def displayReward(self):
         return self._points
   
+    def __str__(self):
+        return f"LoyaltyProgram:\n
+        ID: {self._loyaltyId}\n 
+        Guest: {self._guest.getName()}\n
+        Points: {self._points})"
